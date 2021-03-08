@@ -1,0 +1,11 @@
+name: Commit Compliance
+"on": [pull_request]
+jobs:
+  validate-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Commitsar check
+        uses: docker://aevea/commitsar:0.15.0
