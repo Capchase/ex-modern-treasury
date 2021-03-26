@@ -25,3 +25,7 @@ modern_treasurer-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+# Dialyzer PLTs
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
