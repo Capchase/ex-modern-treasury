@@ -19,6 +19,7 @@ defmodule ModernTreasurer do
     url = build_url(path)
     credentials = get_encoded_credentials()
     headers = [Authorization: "Basic #{credentials}", Accept: "Application/json; Charset=utf-8"]
+    body = JSON.encode!(body)
     HTTPoison.post(url, body, headers)
   end
 
