@@ -17,4 +17,16 @@ defmodule ModernTreasurerTest do
       assert response["object"] =~ "counterparty"
     end
   end
+
+  test "test create counterparty" do
+    ExVCR.Config.filter_request_headers("Authorization")
+
+    use_cassette "create_counterparty" do
+      payload = %{name: "test_company"}
+      {:ok, body} = ModernTreasurer.create_counterparty(payload)
+      response = JSON.decode!(body.body)
+      assert response["name"] =~ "test_company"
+      assert response["object"] =~ "counterparty"
+    end
+  end
 end
