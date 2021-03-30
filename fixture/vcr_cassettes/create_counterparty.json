@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "request": {
+      "body": "{\"name\":\"test_company\"}",
+      "headers": {
+        "Authorization": "***",
+        "Content-Type": "Application/json; Charset=utf-8"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://app.moderntreasury.com/api/counterparties/"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"82d28c56-7dad-49c7-a43f-58d2b53a4ddb\",\"object\":\"counterparty\",\"name\":\"test_company\",\"email\":null,\"send_remittance_advice\":false,\"metadata\":{},\"accounts\":[],\"live_mode\":false,\"created_at\":\"2021-03-30T10:17:51Z\",\"updated_at\":\"2021-03-30T10:17:51Z\"}",
+      "headers": {
+        "Date": "Tue, 30 Mar 2021 10:17:51 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Download-Options": "noopen",
+        "X-Permitted-Cross-Domain-Policies": "none",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "X-Live-Mode": "false",
+        "X-Rate-Limit-Limit": "100",
+        "X-Rate-Limit-Remaining": "99",
+        "ETag": "W/\"2d0148ee2e7c99303b3ab756d34df388\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "e2375c43-76e0-4566-b731-f80c8f380864",
+        "X-Runtime": "0.021701",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]
