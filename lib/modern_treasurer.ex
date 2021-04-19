@@ -3,45 +3,13 @@ defmodule ModernTreasurer do
   Documentation for `ModernTreasurer`.
   """
 
-  # @endpoint "https://app.moderntreasury.com/api"
+  def get_counterparty(id) do
+    body =
+      ModernTreasurer.CounterParty.get_counterparty(%{id: id})
+      |> ModernTreasurer.Utils.get_response_body()
 
-  # def get_counterparty(id) do
-  #   path = "/counterparties/#{id}"
-  #   get_request(path)
-  # end
+    json_body = body |> Jason.encode!()
 
-  # def create_counterparty(body) do
-  #   path = "/counterparties/"
-  #   post_request(path, body)
-  # end
-
-  # defp post_request(path, body) do
-  #   url = build_url(path)
-  #   credentials = get_encoded_credentials()
-
-  #   headers = [
-  #     Authorization: "Basic #{credentials}",
-  #     "Content-Type": "Application/json; Charset=utf-8"
-  #   ]
-
-  #   payload = body |> JSON.encode!()
-  #   HTTPoison.post(url, payload, headers)
-  # end
-
-  # defp get_request(path) do
-  #   url = build_url(path)
-  #   credentials = get_encoded_credentials()
-  #   headers = [Authorization: "Basic #{credentials}", Accept: "Application/json; Charset=utf-8"]
-  #   HTTPoison.get(url, headers)
-  # end
-
-  # defp build_url(path) do
-  #   "#{@endpoint}#{path}"
-  # end
-
-  # defp get_encoded_credentials do
-  #   secret = Application.get_env(:modern_treasurer, :secret)
-  #   organitzation_id = Application.get_env(:modern_treasurer, :organitzation_id)
-  #   "#{organitzation_id}:#{secret}" |> Base.encode64()
-  # end
+    {:ok, json_body}
+  end
 end
