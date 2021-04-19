@@ -48,6 +48,8 @@ defmodule ModernTreasurer.Account do
   end
 
   def get_external_account(%{id: id}) do
+    id = id |> Kernel.to_string() |> String.trim()
+
     result =
       case id do
         "" -> {:error, "ID cannot be empty string or nil"}
