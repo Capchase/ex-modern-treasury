@@ -33,17 +33,9 @@ defmodule ModernTreasurer.Account do
   @doc """
   `iex> ModernTreasurer.Account.create_external_account(%{name: "test-222", body_params: %{counterparty_id: "bc665f7b-b08c-4ac3-9c18-ba926d44a60a"}})`
   """
-  def create_external_account(
-        attrs \\ %{
-          body_params: %{
-            name: "test-exa-1",
-            counterparty_id: "bc665f7b-b08c-4ac3-9c18-ba926d44a60a"
-          }
-        }
-      ) do
+  def create_external_account(attrs) do
     body_params = Map.get(attrs, :body_params, %{})
-    # |> IO.inspect(label: "BODY PARAMS:")
-
+    
     Client.post("external_accounts", body_params)
   end
 
