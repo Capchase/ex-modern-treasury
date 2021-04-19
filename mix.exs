@@ -28,7 +28,7 @@ defmodule ModernTreasurer.MixProject do
       {:tesla, "~> 1.4"},
       {:finch, "~> 0.6.3"},
       {:jason, "~> 1.2"},
-      {:cortex, "~> 0.6.0"}
+      {:cortex, "~> 0.6.0", only: [:dev]}
     ]
   end
 
