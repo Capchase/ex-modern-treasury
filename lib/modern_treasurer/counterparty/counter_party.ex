@@ -14,7 +14,7 @@ defmodule ModernTreasurer.CounterParty do
   end
 
   def get_counterparty(attrs \\ %{id: "bc665f7b-b08c-4ac3-9c18-ba926d44a60a"}) do
-    id = Map.get(attrs, :id, "") |> String.trim()
+    id = Map.get(attrs, :id, "") |> Kernel.to_string() |> String.trim()
 
     result =
       case id do
