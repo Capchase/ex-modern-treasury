@@ -1,4 +1,7 @@
 defmodule ModernTreasurer.Config do
+  @moduledoc """
+  Fetch the required config
+  """
   def base_url do
     Application.fetch_env!(:modern_treasurer, :base_url)
   end

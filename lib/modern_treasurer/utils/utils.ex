@@ -1,4 +1,7 @@
 defmodule ModernTreasurer.Utils do
+  @moduledoc """
+  Utils 
+  """
   def get_response_body({:ok, %{body: body}}) do
     body
   end

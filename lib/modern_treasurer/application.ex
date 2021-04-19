@@ -9,7 +9,7 @@ defmodule ModernTreasurer.Application do
   def start(_type, _args) do
     children = [
       # 1_20_000 => 2 mins
-      {Finch, name: ModernTreasuryFinch, receive_timeout: 1_20_000}
+      {Finch, name: ModernTreasuryFinch, receive_timeout: 120_000}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
