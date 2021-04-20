@@ -9,11 +9,11 @@ defmodule ModernTreasurer.CounterParty do
     Client.get("/counterparties", query: query_params)
   end
 
-  def create_counterparty(attrs \\ %{name: "test-cp-tesla-1"}) do
+  def create_counterparty(attrs) do
     Client.post("/counterparties", attrs)
   end
 
-  def get_counterparty(attrs \\ %{id: "bc665f7b-b08c-4ac3-9c18-ba926d44a60a"}) do
+  def get_counterparty(attrs) do
     id = Map.get(attrs, :id, "") |> Kernel.to_string() |> String.trim()
 
     result =

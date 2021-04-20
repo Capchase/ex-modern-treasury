@@ -35,7 +35,7 @@ defmodule ModernTreasurer.Account do
   """
   def create_external_account(attrs) do
     body_params = Map.get(attrs, :body_params, %{})
-    
+
     Client.post("external_accounts", body_params)
   end
 
