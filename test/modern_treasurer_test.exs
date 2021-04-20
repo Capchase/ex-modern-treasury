@@ -1,32 +1,32 @@
 defmodule ModernTreasurerTest do
+  @moduledoc """
+  Tests for ModernTreasurer API
+  """
   use ExUnit.Case, async: true
-  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  setup_all do
-    HTTPoison.start()
+  alias ModernTreasurer.Account
+  alias ModernTreasurer.CounterParty
+  alias ModernTreasurer.HTTP.Client
+  alias ModernTreasurer.Utils
+
+  test "Cannot get counterparty when id is nil or empty string" do
+    result_when_id_is_nil = CounterParty.get_counterparty(%{id: nil})
+    result_when_id_is_empty_string = CounterParty.get_counterparty(%{id: nil})
+    assert :error == result_when_id_is_nil |> elem(0)
+    assert :error == result_when_id_is_empty_string |> elem(0)
   end
 
-  test "test get counterparty" do
-    ExVCR.Config.filter_request_headers("Authorization")
-
-    use_cassette "get_counterparty" do
-      fake_company_id = "4af839ee-b35b-4976-b904-148afc492099"
-      {:ok, body} = ModernTreasurer.get_counterparty(fake_company_id)
-      response = JSON.decode!(body.body)
-      assert response["name"] =~ "CaptainMarvel"
-      assert response["object"] =~ "counterparty"
-    end
+  test "Cannot get external_account  when id is nil or empty string" do
+    result_when_id_is_nil = Account.get_external_account(%{id: nil})
+    result_when_id_is_empty_string = Account.get_external_account(%{id: ""})
+    assert :error == result_when_id_is_nil |> elem(0)
+    assert :error == result_when_id_is_empty_string |> elem(0)
   end
 
-  test "test create counterparty" do
-    ExVCR.Config.filter_request_headers("Authorization")
-
-    use_cassette "create_counterparty" do
-      payload = %{name: "test_company"}
-      {:ok, body} = ModernTreasurer.create_counterparty(payload)
-      response = JSON.decode!(body.body)
-      assert response["name"] =~ "test_company"
-      assert response["object"] =~ "counterparty"
-    end
+  test "Cannot get internal_account  when id is nil or empty string" do
+    result_when_id_is_nil = Account.get_internal_account(%{id: nil})
+    result_when_id_is_empty_string = Account.get_internal_account(%{id: ""})
+    assert :error == result_when_id_is_nil |> elem(0)
+    assert :error == result_when_id_is_empty_string |> elem(0)
   end
 end
