@@ -3,7 +3,11 @@ defmodule ModernTreasurer.Config do
   Fetch the required config
   """
   def base_url do
-    Application.fetch_env!(:modern_treasurer, :base_url) || "https://app.moderntreasury.com/api"
+    base_url = case Application.fetch_env(:modern_treasurer, :base_url) do
+      {:ok, base_url} -> base_url
+      _ -> "https://app.moderntreasury.com/api"
+    end
+    base_url
   end
 
   def organization_id do
