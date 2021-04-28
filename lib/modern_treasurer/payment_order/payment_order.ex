@@ -33,7 +33,7 @@ defmodule ModernTreasurer.PaymentOrder do
   @doc """
   create_order creates an order in MT. https://docs.moderntreasury.com/reference#create-payment-order
   """
-  @spec create_order(create_order_params()) :: any()
+  @spec create_order(create_order_params()) :: {:ok, Tesla.Env} | {:error, any()}
   def create_order(
         %{
           "id" => payment_id,
