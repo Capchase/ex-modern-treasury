@@ -12,6 +12,8 @@ defmodule ModernTreasurer.PaymentOrder do
 
   defenum Type do
     value(ACH, "ach")
+    value(SEPA, "sepa")
+    value(BACS, "bacs")
 
     default(ACH)
   end
